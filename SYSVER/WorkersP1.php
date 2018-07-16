@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -82,14 +82,14 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html">VERNIE ARCHITECT</a>
+                <a class="navbar-brand" href="WORKERS.html">VERNIE ARCHITECT</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Call Search -->
                     <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
                     <!-- #END# Call Search -->
-                    <li><a href="javascript:void(0);"  data-close="true"><i class="material-icons">power_settings_new</i></a></li>
+                    <li><a href="Login.html"  data-close="true"><i class="material-icons">power_settings_new</i></a></li>
                 </ul>
             </div>
         </div>
@@ -121,25 +121,25 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">Menú</li>
-                    <li>
+                    <li class="active">
                         <a href="WORKERS.html">
                             <i class="material-icons">work</i>
                             <span>Trabajadores</span>
                         </a>
                     </li>
-                    <li >
+                    <li>
                         <a href="PROYECTOS.html">
                             <i class="material-icons">content_paste</i>
                             <span>Proyectos</span>
                         </a>
                     </li>
-                    <li >
+                    <li>
                         <a href="CATEGORIAS.html">
                             <i class="material-icons">attach_file</i>
                             <span>Categorias</span>
                         </a>
                     </li>
-                    <li   class="active">
+                    <li>
                         <a href="FILIA.html">
                             <i class="material-icons">account_balance</i>
                             <span>Filial</span>
@@ -170,7 +170,7 @@
                                     <div class="card">
                                         <div class="header">
                                             <h2>
-                                               Lista de Categorias de proyectos
+                                               Lista de trabajadores
                                             </h2>
                                             <ul class="header-dropdown m-r--5">
                                                 <li class="dropdown">
@@ -187,7 +187,7 @@
                                         </div>
                                         
                                         <div class="body">
-                                              <button type="button"  data-toggle="modal" data-target="#guardar"  class="btn bg-blue btn-circle-lg waves-effect waves-circle waves-float">
+                                              <button type="button"  class="btn bg-blue btn-circle-lg waves-effect waves-circle waves-float">
                                                     <i class="material-icons">add</i>
                                                 </button>
                                             <br><br>
@@ -195,29 +195,41 @@
                                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                                     <thead>
                                                         <tr>
-                                                            <th>Filial </th>
-                                                            <th>Direccion  </th>
-                                                            <th>celular </th>
-                                                            <th>ruc  </th>
-                                                            <th>OPIONES</th>
+                                                            <th>Nombre y apellido </th>
+                                                            <th>DNI</th>
+                                                            <th>Email</th>
+                                                            <th>Edad</th>
+                                                            <th>Celular</th>
+                                                            <th>Fecha de estadia</th>
+                                                            <th>Sueldo</th>
+                                                            <th>Estado</th>
+                                                            <th class="centered" >OPIONES</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
                                                         <tr>
-                                                            <th>Filial </th>
-                                                            <th>Direccion  </th>
-                                                            <th>celular </th>
-                                                            <th>ruc  </th>
+                                                            <th>Nombre y apellido </th>
+                                                            <th>DNI</th>
+                                                            <th>Email</th>
+                                                            <th>Edad</th>
+                                                            <th>Celular</th>
+                                                            <th>Fecha de estadia</th>
+                                                            <th>Sueldo</th>
+                                                            <th>Estado</th>
                                                             <th>OPIONES</th>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>
                                                           
                                                         <tr>
-                                                            <td>Michael Bruce</td>
-                                                            <td>Michael Bruce</td>
-                                                            <td>Michael Bruce</td>
-                                                            <td>Michael Bruce</td>
+                                                            <td>Brandux Juarez Avila</td>
+                                                            <td>72370779</td>
+                                                            <td>branduxjuarez@upeu.edu.pe</td>
+                                                            <td>20</td>
+                                                            <td>931858464</td>
+                                                            <td>20</td>
+                                                            <td>890</td>
+                                                            <td>ACTIVO</td>
                                                             <td>
                                                                 <button type="button"  data-toggle="modal" data-target="#edit"  class="btn btn-info btn-circle waves-effect waves-circle waves-float">
                                                                     <i class="material-icons">edit</i>
@@ -228,10 +240,14 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Donna Snider</td>
-                                                            <td>Michael Bruce</td>
-                                                            <td>Michael Bruce</td>
-                                                            <td>Michael Bruce</td>
+                                                            <td>Jesus Jordan Elias Chavez</td>
+                                                            <td>78954663</td>
+                                                            <td>jesus@upeu.edu.pe</td>
+                                                            <td>21</td>
+                                                            <td>123456789</td>
+                                                            <td>20</td>
+                                                            <td>1200</td>
+                                                            <td>RENUNCIA</td>
                                                             <td>
                                                                 <button type="button"  data-toggle="modal" data-target="#edit" class="btn btn-info btn-circle waves-effect waves-circle waves-float">
                                                                     <i class="material-icons">edit</i>
@@ -256,7 +272,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title" id="defaultModalLabel">Actualizar Datos de proyectos</h4>
+                                <h4 class="modal-title" id="defaultModalLabel">Actualizar Datos de trabajadores</h4>
                             </div>
                             <div class="modal-body">
                             <form>
@@ -289,46 +305,6 @@
                         </div>
                     </div>
                 </div>
-            
-            <!-- Default Size -->
-                <div class="modal fade" id="guardar" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title" id="defaultModalLabel">Actualizar Datos de proyectos</h4>
-                            </div>
-                            <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" id="email_address" class="form-control" placeholder="Corre Electronico">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="password" id="password" class="form-control" placeholder="Fechas fin">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" id="email_address" class="form-control" placeholder="Sueldo">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" id="email_address" class="form-control" placeholder="Sueldo">
-                                    </div>
-                                </div>
-                            </form>                                
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-link waves-effect">Guardar Cambios</button>
-                                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            
         </div>
     </section>
 
