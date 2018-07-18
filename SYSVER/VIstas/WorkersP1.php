@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD:SYSVER/VIstas/WorkersP1.php
 
+=======
+>>>>>>> parent of 52cc3d9... Empezamos:SYSVER/WorkersP1.php
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -64,6 +67,11 @@
     <!-- #END# Page Loader -->
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
+<<<<<<< HEAD:SYSVER/VIstas/WorkersP1.php
+=======
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+>>>>>>> parent of 52cc3d9... Empezamos:SYSVER/WorkersP1.php
     <div class="search-bar">
         <div class="search-icon">
             <i class="material-icons">Buscar</i>
@@ -99,7 +107,11 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
+<<<<<<< HEAD:SYSVER/VIstas/WorkersP1.php
                     <img src="../images/user.png" width="48" height="48" alt="User" />
+=======
+                    <img src="images/user.png" width="48" height="48" alt="User" />
+>>>>>>> parent of 52cc3d9... Empezamos:SYSVER/WorkersP1.php
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
@@ -304,6 +316,7 @@
                     </div>
                 </div>
         </div>
+<<<<<<< HEAD:SYSVER/VIstas/WorkersP1.php
     </section>
 
     <!-- Jquery Core Js -->
@@ -342,6 +355,11 @@
     <script src="../js/pages/tables/jquery-datatable.js"></script>
     <script src="../js/pages/ui/dialogs.js"></script>
     <script src="../js/demo.js"></script>
+=======
+    </section>  
+    <!-- Archivos Javascript -->
+   <?php Include("includes/jsGeneral.php");?>
+>>>>>>> parent of 52cc3d9... Empezamos:SYSVER/WorkersP1.php
 </body>
 <script>
 

@@ -31,14 +31,6 @@
     <!-- Sweetalert Css -->
     <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" />
 
-    <!-- Bootstrap Material Datetime Picker Css -->
-    <link href="plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
-
-    <!-- Wait Me Css -->
-    <link href="plugins/waitme/waitMe.css" rel="stylesheet" />
-
-    <!-- Bootstrap Select Css -->
-    <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
     
     <!-- Custom Css -->
     <link href="css/style.css" rel="stylesheet">
