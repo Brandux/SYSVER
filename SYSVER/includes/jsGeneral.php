@@ -49,3 +49,9 @@
     
     
     <script src="../js/demo.js"></script>
+
+    <script>
+        function limpiarFormularioRegistro() {
+            document.getElementById("form_advanced_validation").reset();
+        }
+    </script>

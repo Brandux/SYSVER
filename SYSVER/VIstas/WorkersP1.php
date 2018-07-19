@@ -40,9 +40,12 @@
                                         </div>
                                         
                                         <div class="body">
+                                            <a href="WorkersP2.php">
                                               <button type="button"  class="btn bg-blue btn-circle-lg waves-effect waves-circle waves-float">
+
                                                     <i class="material-icons">add</i>
                                                 </button>
+                                            </a>
                                             <br><br>
                                             <div class="table-responsive">
                                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
