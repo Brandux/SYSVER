@@ -16,6 +16,6 @@
     if($obj -> conexion()){
         echo 'Se conecto correctamente ';
     }else{
-        echo 'nos e conecto correctamente';
+        echo 'No se conecto correctamente';
     }
 ?>
