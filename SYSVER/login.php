@@ -33,14 +33,14 @@
         </div>
         <div class="card">
             <div class="body">
-                <form id="sign_in" method="POST">
+                <form id="frmLogin" method="POST">
                     <div class="msg">Sign in to start your session</div>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="username" placeholder="Usuario" required autofocus>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Usuario" required autofocus>
                         </div>
                     </div>
                     <div class="input-group">
@@ -48,7 +48,7 @@
                             <i class="material-icons">lock</i>
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
                         </div>
                     </div>
                     <div class="row">
@@ -57,7 +57,7 @@
                             <label for="rememberme">Recordar contraseña</label>
                         </div>
                         <div class="col-xs-4">
-                            <button class="btn btn-block bg-pink waves-effect" type="submit">Entrar</button>
+                            <button class="btn btn-block bg-pink waves-effect" id="entrar" type="submit">Entrar</button>
                         </div>
                     </div>
                     <div class="row m-t-15 m-b--20">
@@ -81,10 +81,38 @@
 
     <!-- Validation Plugin Js -->
     <script src="plugins/jquery-validation/jquery.validate.js"></script>
+    <script src="js/funciones.js"></script>
 
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
     <script src="js/pages/examples/sign-in.js"></script>
 </body>
-
 </html>
+
+<script type="text/javascript" >
+    $(document).ready(function(){
+        //script para evento click y ajax 
+        $('#entrar').click(function(){
+            vacios = validarFormVacio('frmLogin');
+            if(vacios>0){
+                alert("completa los campos");
+                return false;
+            }
+            datos=$('#frmLogin').serialize();
+            console.log(datos);
+            $.ajax({
+                type:"POST",
+                data: datos,
+                url:"controller/RegLogin/login.php",
+                success:function(r){
+                    console.log(r);
+                    if(r==1){
+                        window.localtion="Vistas/WorkersP1.php";
+                    }else{
+                       alert("error");
+                    }
+                }
+            });
+        });
+    });
+</script>
