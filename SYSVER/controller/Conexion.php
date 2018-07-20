@@ -11,11 +11,4 @@
          return $con;
        }
    }
-  
-   $obj = new conectar();
-    if($obj -> conexion()){
-        echo 'Se conecto correctamente ';
-    }else{
-        echo 'No se conecto correctamente';
-    }
 ?>

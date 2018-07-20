@@ -1,9 +1,9 @@
 <?php
-
+    session_start();
     require_once "../../controller/Conexion.php";
     require_once "../../clases/Usuarios.php";
-    $obj= new usuarios();
+    $obje  = new usuarios();
     $datos = array($_POST['username'],  $_POST['password']);
-    echo $obj->loginUser($datos);
+    echo $obje -> loginUser($datos);
 
 ?>

@@ -33,7 +33,7 @@
         </div>
         <div class="card">
             <div class="body">
-                <form id="frmLogin" method="POST">
+                <form id="frmLogin">
                     <div class="msg">Sign in to start your session</div>
                     <div class="input-group">
                         <span class="input-group-addon">
@@ -107,7 +107,7 @@
                 success:function(r){
                     console.log(r);
                     if(r==1){
-                        window.localtion="Vistas/WorkersP1.php";
+                        window.location="Vistas/ProyectosP1.php";
                     }else{
                        alert("error");
                     }
