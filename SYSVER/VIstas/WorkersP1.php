@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    if(isset($_SESSION['usuario'])){
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -186,3 +191,8 @@
     
 </script>
 </html>
+<?php
+    }else{
+        header("../login.php");
+    }
+?>

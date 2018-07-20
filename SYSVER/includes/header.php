@@ -25,7 +25,7 @@
                     <!-- Call Search -->
                     <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
                     <!-- #END# Call Search -->
-                    <li><a href="../login.php"  data-close="true"><i class="material-icons">power_settings_new</i></a></li>
+                    <li><a href="../controller/RegLogin/salir.php"  data-close="true"><i class="material-icons">power_settings_new</i></a></li>
                 </ul>
             </div>
         </div>
