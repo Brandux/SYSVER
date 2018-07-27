@@ -47,6 +47,8 @@
     <script src="../js/pages/tables/jquery-datatable.js"></script>
     <script src="../js/pages/ui/dialogs.js"></script>
     
+    <script src="../js/funciones.js"></script>
+    
     
     <script src="../js/demo.js"></script>
 
