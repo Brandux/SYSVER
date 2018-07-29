@@ -31,11 +31,16 @@
                             <span>Trabajadores</span>
                         </a>
                     </li>
+
                     <li>
-                        <a href="ProyectosP1.php">
-                            <i class="material-icons">content_paste</i>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">assignment</i>
                             <span>Proyectos</span>
                         </a>
+                        <ul class="ml-menu">
+                            <li><a href="ProyectosP1.php">Proyectos</a> </li>
+                            <li><a href="Clientes.php">Clientes</a></li>
+                        </ul>
                     </li>
                     <li>
                         <a href="Categoria.php">
