@@ -110,11 +110,18 @@
 											<td><?php echo $ver[5]?></td>
 											<td><?php echo $ver[6]?></td>
 											<td>S./ <?php echo $ver[8]?></td>
-											<td><?php if($ver[3]==1){echo "SI";}else{ echo "NO";}?></td>
+                                            <td><?php if($ver[3]==1){
+                                                echo "<span class='badge bg-teal'>SI</span>";
+                                            }else{
+                                                echo "<span class='badge bg-pink'>NO</span>";
+                                            }?></td>
 											<td><?php echo $ver[7]?></td>
-											<td>
-												<span class="badge bg-teal"><?php echo $ver[9]?></span>
-											</td>
+											<td><?php if($ver[9]==1){
+                                                echo "<span class='badge bg-teal'>ACTIVO</span>";
+                                                }else{
+                                                    echo "<span class='badge bg-pink'>CANCELADO</span>";
+                                                }
+                                            ?></td>
 											<td>
 												<button type="button" data-toggle="modal" data-target="#edit" class="btn btn-info btn-circle waves-effect waves-circle waves-float">
 													<i class="material-icons">edit</i>
