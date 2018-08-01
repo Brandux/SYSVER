@@ -26,12 +26,17 @@
                 <ul class="list">
                     <li class="header">Menú</li>
                     <li class="active">
+                        <a href="index.php">
+                            <i class="material-icons">home</i>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="WorkersP1.php">
                             <i class="material-icons">work</i>
                             <span>Trabajadores</span>
                         </a>
                     </li>
-
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">assignment</i>
