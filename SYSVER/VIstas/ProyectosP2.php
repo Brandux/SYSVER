@@ -20,7 +20,6 @@
 	<!--Nav Bar-->
 	<?php Include("../includes/navBar.php");?>
 	<!-- / Nav Bar-->
-
 	<!--Area de Conenido-->
 	<section class="content">
 		<div class="container-fluid">
@@ -60,7 +59,7 @@
 							</ul>
 						</div>
 						<div class="body">
-							<form>
+							<form id="regisProyecto">
 								<div class="row clearfix">
 									<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
 										<button class="btn btn-success btn-lg btn-block waves-effect" type="button">
@@ -74,7 +73,7 @@
 											<i class="material-icons">format_align_center</i>
 										</span>
 										<div class="form-line">
-											<input type="text" class="form-control " placeholder="Nombre del proyecto">
+											<input type="text" id="proyecto" name="proyecto" class="form-control " placeholder="Nombre del proyecto">
 										</div>
 									</div>
 								</div>
@@ -85,7 +84,7 @@
 											<i class="material-icons">settings</i>
 										</span>
 										<label for="sel1">Estudio de Suelos * :</label>
-										<select name="tipo_doc" class="form-control" id="tipo_doc">
+										<select name="tipo_doc" class="form-control" id="Es_suelo">
 											<option value="si">Si</option>
 											<option value="no">NO</option>
 										</select>
@@ -97,7 +96,7 @@
 											<i class="material-icons">date_range</i>
 										</span>
 										<div class="form-line">
-											<input type="text" class="datepicker form-control" placeholder="Inicio del proyecto...">
+											<input type="text" id="fecha_ini" name="fecha_ini" class="datepicker form-control" placeholder="Inicio del proyecto...">
 										</div>
 									</div>
 								</div>
@@ -128,9 +127,14 @@
 											<i class="material-icons">account_circle</i>
 										</span>
 										<label for="sel1">Cliente * :</label>
+										<?php
+										$link = mysqli_connect('localhost', 'vertec', 'vernie123','vernie_db');
+											$sql ="SELECT IDCLIENTE,NOMBRE FROM CLIENTE;";
+											$resul= mysqli_query($link,$sql);?>
 										<select name="tipo_doc" class="form-control" id="tipo_doc">
-											<option value="si">Si</option>
-											<option value="no">NO</option>
+											<?php while ($ver= mysqli_fetch_row($resul)): ?>
+											<option value="<?php echo $ver[0]?>"><?php echo $ver[1]?></option>
+											<?php endwhile;?>
 										</select>
 									</div>
 
@@ -140,11 +144,15 @@
 										<span class="input-group-addon">
 											<i class="material-icons">info_outline</i>
 										</span>
-
 										<label for="sel1">Nivel de importancia * :</label>
+										<?php
+										$link = mysqli_connect('localhost', 'vertec', 'vernie123','vernie_db');
+											$sql ="SELECT IDCATEGORIA, NOMBRE FROM CATEGORIA WHERE ESTADO =1;";
+											$resul= mysqli_query($link,$sql);?>
 										<select name="tipo_doc" class="form-control" id="tipo_doc">
-											<option value="si">Si</option>
-											<option value="no">NO</option>
+											<?php while ($ver= mysqli_fetch_row($resul)): ?>
+											<option value="<?php echo $ver[0]?>"><?php echo $ver[1]?></option>
+											<?php endwhile;?>
 										</select>
 									</div>
 								</div>
@@ -159,7 +167,7 @@
 									</div>
 								</div>
 
-								<button type="button" class="btn btn-success m-t-15 waves-effect">Registrar</button>
+								<button type="button" id="btnProyecto" class="btn btn-success m-t-15 waves-effect">Registrar</button>
 								<button type="button"  class="btn btn-danger m-t-15 waves-effect">Cancelar</button>
 
 							</form>
@@ -182,6 +190,35 @@
 	function Guardar() {
 		swal("Good job!", "You clicked the button!", "success");
 	}
+
+	//script para guardar
+	$('#btnProyecto').click(function(){
+            vacios = validarFormVacio('regisProyecto');
+            if(vacios>0){
+                swal("UPS!! Debe completar los campos", "Da clic en el boton Ok!", "info");
+                return false;
+            }
+            datos=$('#regisProyecto').serialize();
+            console.log(datos);
+           /* $.ajax({
+                type:"POST",
+                data: datos,
+                url:"../controller/Cliente/agregarCliente.php",
+                success:function(r){
+                    console.log(r);
+                    if(r==1){
+                        $('#addCliente').modal('hide');
+                        swal("Registrado correctamente!", "Da clic en el boton Ok!", "success");
+						location.reload();
+                    }else{
+                        swal("Problemas.. Intentelo nuevamente!", "Da clic en el boton Ok!", "info");
+                    }
+                }
+            });*/
+        });
+
+	
+
 </script>
 
 </html>

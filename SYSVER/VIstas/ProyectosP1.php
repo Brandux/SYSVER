@@ -195,6 +195,8 @@
 
 	});
 
+
+
 	$("#add").click(function() {
 		location.href = "http://localhost/SYSVER/SYSVER/Vistas/ProyectosP2.php";
 	});
