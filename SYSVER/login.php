@@ -107,7 +107,7 @@
                 success:function(r){
                     console.log(r);
                     if(r==1){
-                        window.location="Vistas/ProyectosP1.php";
+                        window.location="Vistas/index.php";
                     }else{
                        alert("error");
                     }

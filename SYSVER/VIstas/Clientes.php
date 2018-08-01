@@ -19,8 +19,6 @@
 	<!--Nav Bar-->
 	<?php Include("../includes/navBar.php");?>
 	<!-- / Nav Bar-->
-
-
 	<!--Area de Conenido-->
 	<section class="content">
 		<div class="container-fluid">
@@ -258,29 +256,29 @@
     function eliminarCliente(id){
         swal({
         title: " Deseas eliminar?",
-        text: "Estos datos se perderan pernanentemente..!" + id,
+        text: "Estos datos se perderan pernanentemente..!" ,
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
         confirmButtonText: "Si, obviamente!",
         closeOnConfirm: false
         }, function () {
-           /* $.ajax({
+           $.ajax({
                 type:"POST",
-                data: "idCate="+id,
+                data: "idcliente="+id,
                 url:"../controller/Cliente/deleteCliente.php",
                 success:function(r){
                     console.log(r);
                     if(r==1){
-                        swal("Eliminado correctamente!", "Da clic en el boton Ok!", "success");
-                        $("#tablaCategoria").load("Categoria/tablaCategoria.php");
+						swal("Eliminado correctamente!", "Da clic en el boton Ok!", "success");
+						location.reload();
                     }else{
                         swal("Problemas.. Intentelo nuevamente!", "Da clic en el boton Ok!", "info");
                     }
                 }
             });
              swal("Editado correctamente!", "Da clic en el boton Ok!", "success");
-        });*/
+        });
     }
 </script>
 

@@ -22,6 +22,14 @@
     <script src="../plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
     <script src="../plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 
+    
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="../plugins/jquery-countto/jquery.countTo.js"></script>
+
+    <!-- Morris Plugin Js -->
+    <script src="../plugins/raphael/raphael.min.js"></script>
+    <script src="../plugins/morrisjs/morris.js"></script>
+
     <!-- Jquery Validation Plugin Css -->
     <script src="../plugins/jquery-validation/jquery.validate.js"></script>
 
@@ -46,8 +54,8 @@
     <script src="../js/pages/forms/basic-form-elements.js"></script>
     <script src="../js/pages/tables/jquery-datatable.js"></script>
     <script src="../js/pages/ui/dialogs.js"></script>
-    
     <script src="../js/funciones.js"></script>
+<!--<script src="../js/pages/index.js"></script>-->
     
     
     <script src="../js/demo.js"></script>

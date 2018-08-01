@@ -17,10 +17,10 @@
             return mysqli_query($conexion, $sql);
         }
     
-        public function eliminarCliente($idCategoria){
+        public function eliminarCliente($idCliente){
             $c= new conectar();
             $conexion=$c->conexion (); $c= new conectar();
-            $sql="";
+            $sql="DELETE FROM cliente WHERE idCliente='$idCliente'";
             return mysqli_query($conexion, $sql);
         }
     }
