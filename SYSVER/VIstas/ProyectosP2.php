@@ -4,7 +4,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
 	<?php Include("../includes/head.php"); ?>
@@ -84,9 +84,9 @@
 											<i class="material-icons">settings</i>
 										</span>
 										<label for="sel1">Estudio de Suelos * :</label>
-										<select name="tipo_doc" class="form-control" id="Es_suelo">
-											<option value="si">Si</option>
-											<option value="no">NO</option>
+										<select name="Es_suelo" class="form-control" id="Es_suelo">
+											<option value="1">Si</option>
+											<option value="0">NO</option>
 										</select>
 									</div>
 								</div>
@@ -107,7 +107,7 @@
 											<i class="material-icons">date_range</i>
 										</span>
 										<div class="form-line">
-											<input type="text" class="datepicker form-control" placeholder="Fin del proyecto...">
+											<input type="text" id="fecha_fin" name="fecha_fin" class="datepicker form-control" placeholder="Fin del proyecto...">
 										</div>
 									</div>
 
@@ -131,7 +131,7 @@
 										$link = mysqli_connect('localhost', 'vertec', 'vernie123','vernie_db');
 											$sql ="SELECT IDCLIENTE,NOMBRE FROM CLIENTE;";
 											$resul= mysqli_query($link,$sql);?>
-										<select name="tipo_doc" class="form-control" id="tipo_doc">
+										<select  class="form-control" name="idCliente" id="idCliente">
 											<?php while ($ver= mysqli_fetch_row($resul)): ?>
 											<option value="<?php echo $ver[0]?>"><?php echo $ver[1]?></option>
 											<?php endwhile;?>
@@ -149,7 +149,7 @@
 										$link = mysqli_connect('localhost', 'vertec', 'vernie123','vernie_db');
 											$sql ="SELECT IDCATEGORIA, NOMBRE FROM CATEGORIA WHERE ESTADO =1;";
 											$resul= mysqli_query($link,$sql);?>
-										<select name="tipo_doc" class="form-control" id="tipo_doc">
+										<select  class="form-control" name="idCategoria" id="idCategoria">
 											<?php while ($ver= mysqli_fetch_row($resul)): ?>
 											<option value="<?php echo $ver[0]?>"><?php echo $ver[1]?></option>
 											<?php endwhile;?>
@@ -162,13 +162,13 @@
 											<i class="material-icons">attach_money</i>
 										</span>
 										<div class="form-line">
-											<input type="number" class="form-control money-dollar" placeholder="Ex: S/. 99,99 ">
+											<input type="number" id="sueldo" name="sueldo" class="form-control money-dollar" placeholder="Ex: S/. 99,99 ">
 										</div>
 									</div>
 								</div>
 
 								<button type="button" id="btnProyecto" class="btn btn-success m-t-15 waves-effect">Registrar</button>
-								<button type="button"  class="btn btn-danger m-t-15 waves-effect">Cancelar</button>
+								<button type="button"  id="cancel" class="btn btn-danger m-t-15 waves-effect">Cancelar</button>
 
 							</form>
 						</div>
@@ -191,6 +191,10 @@
 		swal("Good job!", "You clicked the button!", "success");
 	}
 
+	$("#cancel").click(function() {
+		location.href = "http://localhost/SYSVER/SYSVER/Vistas/ProyectosP1.php";
+	});
+
 	//script para guardar
 	$('#btnProyecto').click(function(){
             vacios = validarFormVacio('regisProyecto');
@@ -200,24 +204,28 @@
             }
             datos=$('#regisProyecto').serialize();
             console.log(datos);
-           /* $.ajax({
+           	$.ajax({
                 type:"POST",
                 data: datos,
-                url:"../controller/Cliente/agregarCliente.php",
+                url:"../controller/Proyecto/agregarProyecto.php",
                 success:function(r){
                     console.log(r);
                     if(r==1){
-                        $('#addCliente').modal('hide');
                         swal("Registrado correctamente!", "Da clic en el boton Ok!", "success");
-						location.reload();
+						location.href ="http://localhost/SYSVER/SYSVER/Vistas/ProyectosP1.php";
                     }else{
                         swal("Problemas.. Intentelo nuevamente!", "Da clic en el boton Ok!", "info");
                     }
                 }
-            });*/
+            });
         });
 
-	
+	//Formatea los datepicker a formato de la base de dato
+	$('#fecha_fin').bootstrapMaterialDatePicker({  lang : 'es' ,weekStart : 0  , time: false , cancelText: 'Cancelar', okText: 'Definir' });
+	$('#fecha_ini').bootstrapMaterialDatePicker({ lang : 'es', weekStart : 0 , time: false  ,  cancelText: 'Cancelar', okText: 'Definir' }).on('change', function(e, date)
+	{
+	$('#fecha_fin').bootstrapMaterialDatePicker('setMinDate', date);
+	});
 
 </script>
 

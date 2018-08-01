@@ -107,33 +107,30 @@
 											<td><?php echo $ver[1]?></td>
 											<td><?php echo $ver[2]?></td>
 											<td><?php echo $ver[4]?></td>
-											<td><?php echo $ver[5]?></td>
-											<td><?php echo $ver[6]?></td>
+											<td class="text-center"><?php echo $ver[5]?></td>
+											<td class="text-center"><?php echo $ver[6]?></td>
 											<td>S./ <?php echo $ver[8]?></td>
-                                            <td><?php if($ver[3]==1){
+                                            <td class="text-center"><?php if($ver[3]==1){
                                                 echo "<span class='badge bg-teal'>SI</span>";
                                             }else{
                                                 echo "<span class='badge bg-pink'>NO</span>";
                                             }?></td>
-											<td><?php echo $ver[7]?></td>
+											<td class="text-center"><strong><?php echo $ver[7]?></strong></td>
 											<td><?php if($ver[9]==1){
-                                                echo "<span class='badge bg-teal'>ACTIVO</span>";
-                                                }else{
-                                                    echo "<span class='badge bg-pink'>CANCELADO</span>";
+                                                echo "<span class='badge bg-green'>En Proceso</span>";
+                                                }else if($ver[9]==0){
+                                                    echo "<span class='badge bg-orange'>Terminado</span>";
+												}else if($ver[9]==2){
+                                                    echo "<span class='badge bg-red'>Cancelado</span>";
                                                 }
                                             ?></td>
 											<td>
 												<button type="button" data-toggle="modal" data-target="#edit" class="btn btn-info btn-circle waves-effect waves-circle waves-float">
 													<i class="material-icons">edit</i>
 												</button>
-												<button type="button" onclick="eliminar()" class="btn btn-danger btn-circle waves-effect waves-circle waves-float">
-													<i class="material-icons">close</i>
-												</button>
 											</td>
 										</tr>
-                                        <?php endwhile;
-                                       
-                                        ?>
+                                        <?php endwhile;?>
 									</tbody>
 								</table>
 
