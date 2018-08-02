@@ -66,7 +66,7 @@
                                             CONCAT( DATE_FORMAT(PRO.FECHA_INICIO,'%d  %b , %Y'), ' : hasta : ', DATE_FORMAT(PRO.FECHA_FIN,'%d  %b , %Y')) AS FECHA , 
                                             DATEDIFF(PRO.FECHA_FIN,PRO.fecha_inicio)+1 as dias_totales,
                                             DATEDIFF(PRO.FECHA_FIN, NOW()) as DiasRestantes,
-                                            CT.NOMBRE AS CATEGORIA, CON.COSTO_TOTAL AS COSTO , pro.ESTADO AS ESTADO
+                                            CT.NOMBRE AS CATEGORIA, CON.COSTO_TOTAL AS COSTO , pro.ESTADO AS ESTADO , con.idcontrato , PRO.FECHA_FIN
                                             FROM proyecto PRO
                                             inner join CONTRATO CON ON CON.IDCONTRATO = PRO.IDCONTRATO
                                             INNER JOIN CATEGORIA CT ON CT.IDCATEGORIA = CON.IDCATEGORIA	
@@ -147,7 +147,8 @@
                                             ?>
 											</td>
 											<td>
-												<button type="button" data-toggle="modal" data-target="#edit" class="btn btn-info btn-circle waves-effect waves-circle waves-float">
+												<button type="button" onclick="editarCliente('<?php echo $ver[10]?>','<?php echo $ver[0]?>','<?php echo $ver[2]?>','<?php echo $ver[11]?>','<?php echo $ver[8]?>','<?php echo $ver[3]?>','<?php echo $ver[9]?>')"
+												 data-toggle="modal" data-target="#edit" class="btn btn-info btn-circle waves-effect waves-circle waves-float">
 													<i class="material-icons">edit</i>
 												</button>
 											</td>
@@ -182,7 +183,7 @@
 											<label for="sel1">Nombre del Proyecto * :</label>
 											<input type="hidden" id="idContr" value="" name="idContr">
 											<input type="hidden" id="idPro" value="" name="idPro">
-											<input type="number" id="nom_edit_pro" name="nom_edit_pro" class="form-control" placeholder="Proyecto...">
+											<input type="text" id="nom_edit_proyex" name="nom_edit_proyex" class="form-control" placeholder="Proyecto...">
 										</div>
 									</div>
 								</div>
@@ -260,15 +261,15 @@
 	});
 
 	// para editar 
-	function editarCliente(id, tipo_doc, num, cell, tel, email) {
-		$("#idCliente").val(id);
-		$("#doc_identidad").text(tipo_doc);
-		$("#Num_Doc").val(num);
-		$("#celu").val(cell);
-		$("#gmail").val(email);
-		$("#fono").val(tel);
-		// para setear valor al combo
-		//$('select option[value="0"]').attr("selected", true);
+	function editarCliente(idCon, idProy, proyecto, finPro, Cost, es_suel, estado) {
+		$("#idContr").val(idCon);
+		$("#idPro").val(idProy);
+		$("#nom_edit_proyex").val(proyecto);
+		$("#edit_finpro").val(finPro);
+		$("#edit_Costo").val(Cost);
+		$("#provincia option[value="+ valor +"]").attr("selected",true);
+		$("#edit_Es_suelo option[value="+es_suel+"]").attr("selected",true);
+		$("#edit_estado option[value="+estado+"]").attr("selected",true);
 	}
 
 	$('#editarProyecto').click(function() {
@@ -279,10 +280,10 @@
 		}
 		datos = $('#editformPoryecto').serialize();
 		console.log(datos);
-		/*$.ajax({
+		$.ajax({
 			type: "POST",
 			data: datos,
-			url: "../controller/Cliente/editCliente.php",
+			url: "../controller/Proyecto/editProyecto.php",
 			success: function(r) {
 				console.log(r);
 				if (r == 1) {
@@ -292,9 +293,9 @@
 					swal("Problemas.. Intentelo nuevamente!", "Da clic en el boton Ok!", "info");
 				}
 			}
-		});*/
+		});
 	});
-	$('#fechafin').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
+	$('#edit_finpro').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
 </script>
 
 </html>
