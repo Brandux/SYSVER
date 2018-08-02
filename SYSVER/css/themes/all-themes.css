@@ -52,7 +52,7 @@
 
 .theme-red .sidebar .menu .list li.active> :first-child i,
 .theme-red .sidebar .menu .list li.active> :first-child span {
-    color: #F44336;
+    color: #000;
 }
 
 .theme-red .sidebar .menu .list .toggled {
