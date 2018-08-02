@@ -30,7 +30,7 @@
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="card">
 						<div class="header">
-							<h1  class="text-center">
+							<h1 class="text-center">
 								Lista de Proyectos
 							</h1>
 							<ul class="header-dropdown m-r--5">
@@ -104,33 +104,55 @@
 									<tbody>
 										<?php while ($ver= mysqli_fetch_row($resul)): ?>
 										<tr>
-											<td><?php echo $ver[1]?></td>
-											<td><?php echo $ver[2]?></td>
-											<td><?php echo $ver[4]?></td>
-											<td class="text-center"><?php echo $ver[5]?></td>
-											<td class="text-center"><?php echo $ver[6]?></td>
-											<td>S./ <?php echo $ver[8]?></td>
-                                            <td class="text-center"><?php if($ver[3]==1){
+											<td>
+												<?php echo $ver[1]?>
+											</td>
+											<td>
+												<strong>
+													<?php echo $ver[2]?>
+												</strong>
+											</td>
+											<td>
+												<?php echo $ver[4]?>
+											</td>
+											<td class="text-center">
+												<?php echo $ver[5]?>
+											</td>
+											<td class="text-center">
+												<?php echo $ver[6]?>
+											</td>
+											<td>S./
+												<?php echo $ver[8]?>
+											</td>
+											<td class="text-center">
+												<?php if($ver[3]==1){
                                                 echo "<span class='badge bg-teal'>SI</span>";
                                             }else{
                                                 echo "<span class='badge bg-pink'>NO</span>";
-                                            }?></td>
-											<td class="text-center"><strong><?php echo $ver[7]?></strong></td>
-											<td><?php if($ver[9]==1){
+                                            }?>
+											</td>
+											<td class="text-center">
+												<strong>
+													<?php echo $ver[7]?>
+												</strong>
+											</td>
+											<td>
+												<?php if($ver[9]==1){
                                                 echo "<span class='badge bg-green'>En Proceso</span>";
                                                 }else if($ver[9]==0){
                                                     echo "<span class='badge bg-orange'>Terminado</span>";
 												}else if($ver[9]==2){
                                                     echo "<span class='badge bg-red'>Cancelado</span>";
                                                 }
-                                            ?></td>
+                                            ?>
+											</td>
 											<td>
 												<button type="button" data-toggle="modal" data-target="#edit" class="btn btn-info btn-circle waves-effect waves-circle waves-float">
 													<i class="material-icons">edit</i>
 												</button>
 											</td>
 										</tr>
-                                        <?php endwhile;?>
+										<?php endwhile;?>
 									</tbody>
 								</table>
 
@@ -147,35 +169,80 @@
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h4 class="modal-title" id="defaultModalLabel">Actualizar Datos de proyectos</h4>
+							<h1 class="modal-title text-center" id="defaultModalLabel">Actualizar Datos de proyectos</h1>
 						</div>
 						<div class="modal-body">
-							<form>
-								<div class="form-group">
-									<div class="form-line">
-										<input type="text" id="email_address" class="form-control" placeholder="Corre Electronico">
+							<form id="editformPoryecto">
+								<div class="form-group form-float">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">edit</i>
+										</span>
+										<div class="form-line">
+											<label for="sel1">Nombre del Proyecto * :</label>
+											<input type="hidden" id="idContr" value="" name="idContr">
+											<input type="hidden" id="idPro" value="" name="idPro">
+											<input type="number" id="nom_edit_pro" name="nom_edit_pro" class="form-control" placeholder="Proyecto...">
+										</div>
 									</div>
 								</div>
-								<div class="form-group">
-									<div class="form-line">
-										<input type="password" id="password" class="form-control" placeholder="Fechas fin">
+								<div class="form-group form-float">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">date_range</i>
+										</span>
+										<div class="form-line">
+											<label for="sel1">fin del proyecto * :</label>
+											<input type="text" id="edit_finpro" name="edit_finpro" class="datepicker form-control" placeholder="Fin del proyecto...">
+										</div>
 									</div>
 								</div>
-								<div class="form-group">
-									<div class="form-line">
-										<input type="text" id="email_address" class="form-control" placeholder="Sueldo">
+								<div class="form-group form-float">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">shopping_cart</i>
+										</span>
+										<div class="form-line">
+											<label for="sel1">Costo Total * :</label>
+											<input type="number" id="edit_Costo" name="edit_Costo" class="form-control" placeholder="Costo...">
+										</div>
 									</div>
 								</div>
-								<div class="form-group">
-									<div class="form-line">
-										<input type="text" id="email_address" class="form-control" placeholder="Sueldo">
+								<div class="form-group form-float">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">location_on</i>
+										</span>
+										<div class="form-line">
+											<label for="sel1">Estudio de suelo * :</label>
+											<select name="edit_Es_suelo" class="form-control" id="edit_Es_suelo">
+												<option value="1">Si</option>
+												<option value="0">NO</option>
+											</select>
+										</div>
 									</div>
 								</div>
+								<div class="form-group form-float">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">https</i>
+										</span>
+										<div class="form-line">
+											<label for="sel1">ESTADO * :</label>
+											<select name="edit_estado" class="form-control" id="edit_estado">
+												<option value="1">En Proceso</option>
+												<option value="0">Terminado</option>
+												<option value="2">Cancelado</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
 							</form>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-link waves-effect">Guardar Cambios</button>
-							<button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Cerrar</button>
+							<button type="button" id="editarProyecto" class="btn btn-success waves-effect">Guardar Cambios</button>
+							<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cerrar</button>
 						</div>
 					</div>
 				</div>
@@ -188,35 +255,49 @@
 	<?php Include("../includes/jsGeneral.php");?>
 </body>
 <script>
-	$(document).ready(function() {
-
-	});
-
-
-
 	$("#add").click(function() {
 		location.href = "http://localhost/SYSVER/SYSVER/Vistas/ProyectosP2.php";
 	});
 
-	function eliminar() {
-		swal({
-			title: " Deseas eliminar?",
-			text: "Estos datos se perderan pernanentemente..!",
-			type: "warning",
-			showCancelButton: true,
-			confirmButtonColor: "#DD6B55",
-			confirmButtonText: "Si, obviamente!",
-			closeOnConfirm: false
-		}, function() {
-			swal("Eliminado correctamente!", "success");
-		});
+	// para editar 
+	function editarCliente(id, tipo_doc, num, cell, tel, email) {
+		$("#idCliente").val(id);
+		$("#doc_identidad").text(tipo_doc);
+		$("#Num_Doc").val(num);
+		$("#celu").val(cell);
+		$("#gmail").val(email);
+		$("#fono").val(tel);
+		// para setear valor al combo
+		//$('select option[value="0"]').attr("selected", true);
 	}
+
+	$('#editarProyecto').click(function() {
+		vacios = validarFormVacio('editformPoryecto');
+		if (vacios > 0) {
+			swal("UPS!! Debe completar los campos", "Da clic en el boton Ok!", "info");
+			return false;
+		}
+		datos = $('#editformPoryecto').serialize();
+		console.log(datos);
+		/*$.ajax({
+			type: "POST",
+			data: datos,
+			url: "../controller/Cliente/editCliente.php",
+			success: function(r) {
+				console.log(r);
+				if (r == 1) {
+					swal("Editado correctamente!", "Da clic en el boton Ok!", "success");
+					location.reload();
+				} else {
+					swal("Problemas.. Intentelo nuevamente!", "Da clic en el boton Ok!", "info");
+				}
+			}
+		});*/
+	});
+	$('#fechafin').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
 </script>
 
 </html>
-
-
-
 <?php
     }else{
         header("location:../login.php");

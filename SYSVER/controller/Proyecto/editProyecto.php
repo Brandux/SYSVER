@@ -13,5 +13,5 @@
     $_POST['sueldo']);
 
     $obj = new proyectos();
-    echo $obj-> agregaProyectos($datos);
+    echo $obj-> editProyectos($datos);
 ?>

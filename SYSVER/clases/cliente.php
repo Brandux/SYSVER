@@ -13,7 +13,7 @@
         public function editCliente($datos){
             $c= new conectar();
             $conexion=$c->conexion (); $c= new conectar();
-            $sql="";
+            $sql="UPDATE cliente SET Doc_identidad='$datos[1]', Celular='$datos[2]', Telefono='$datos[4]', email='$datos[3]' WHERE idCliente='$datos[0]' ";
             return mysqli_query($conexion, $sql);
         }
     

@@ -12,7 +12,7 @@
         public function editProyectos($datos){
             $c= new conectar();
             $conexion=$c->conexion (); $c= new conectar();
-            $sql="";
+            $sql="call vernie_db.pro_EditProyecto(1, 2, 'lala', '2018-08-01', '1', '1', 200)";
             return mysqli_query($conexion, $sql);
         }
     
