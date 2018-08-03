@@ -33,7 +33,7 @@
         </div>
         <div class="card">
             <div class="body">
-                <form id="forgot_password" method="POST">
+                <form id="forgot_password" >
                     <div class="msg">
                         Ingresa tu correo electronico para recuperar tu contraseña y tener acceso al sistema, profavor esperar el email que llegara a su bandeja.!!
                     </div>
@@ -46,10 +46,10 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">RESETEAR CONTRASEÑA</button>
+                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="button">RESETEAR CONTRASEÑA</button>
 
                     <div class="row m-t-20 m-b--5 align-center">
-                        <a href="Login.html">Entrar!</a>
+                        <a href="login.php">Entrar!</a>
                     </div>
                 </form>
             </div>

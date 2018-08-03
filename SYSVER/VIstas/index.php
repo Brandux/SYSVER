@@ -39,7 +39,8 @@
                                 $sql ="SELECT count(*) as numero FROM worker";
 								$resul= mysqli_query($link,$sql);
 								 while ($ver= mysqli_fetch_row($resul)): ?>
-							<div class="number count-to" data-from="0" data-to="<?php echo $ver[0]?>" data-speed="1000" data-fresh-interval="20"></div>
+							<div class="number count-to" data-from="0" data-to="<?php echo $ver[0]?>" data-speed="1000"
+							 data-fresh-interval="20"></div>
 							<?php endwhile;?>
 						</div>
 					</div>
@@ -200,51 +201,24 @@
 				<!-- Answered Tickets -->
 				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 					<div class="card">
-						<div class="body bg-teal">
-							<div class="font-bold m-b--35">ANSWERED TICKETS</div>
+						<div class="body bg-grey">
+							<div class="font-bold m-b--35">PROYECTOS</div>
 							<ul class="dashboard-stat-list">
+								<?php
+                                   $link = mysqli_connect('localhost', 'vertec', 'vernie123','vernie_db');
+								    $sql ="SELECT PRO.NOMBRE AS PROYECTO , DATEDIFF(PRO.FECHA_FIN,PRO.fecha_inicio)+1 as dias_totales FROM PROYECTO  PRO ORDER BY dias_totales DESC ";
+                                     $resul= mysqli_query($link,$sql);
+                               		while ($ver= mysqli_fetch_row($resul)): ?>
+
 								<li>
-									TODAY
+									<?php echo $ver[0]?>
 									<span class="pull-right">
-										<b>12</b>
-										<small>TICKETS</small>
+										<b><?php echo $ver[1]?></b>
+										<small>DÍAS</small>
 									</span>
 								</li>
-								<li>
-									YESTERDAY
-									<span class="pull-right">
-										<b>15</b>
-										<small>TICKETS</small>
-									</span>
-								</li>
-								<li>
-									LAST WEEK
-									<span class="pull-right">
-										<b>90</b>
-										<small>TICKETS</small>
-									</span>
-								</li>
-								<li>
-									LAST MONTH
-									<span class="pull-right">
-										<b>342</b>
-										<small>TICKETS</small>
-									</span>
-								</li>
-								<li>
-									LAST YEAR
-									<span class="pull-right">
-										<b>4 225</b>
-										<small>TICKETS</small>
-									</span>
-								</li>
-								<li>
-									ALL
-									<span class="pull-right">
-										<b>8 752</b>
-										<small>TICKETS</small>
-									</span>
-								</li>
+
+								<?php endwhile;?>
 							</ul>
 						</div>
 					</div>

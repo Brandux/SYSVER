@@ -18,6 +18,8 @@
     <!-- Waves Effect Css -->
     <link href="plugins/node-waves/waves.css" rel="stylesheet" />
 
+    <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+
     <!-- Animation Css -->
     <link href="plugins/animate-css/animate.css" rel="stylesheet" />
 
@@ -57,12 +59,12 @@
                             <label for="rememberme">Recordar contraseña</label>
                         </div>
                         <div class="col-xs-4">
-                            <button class="btn btn-block bg-pink waves-effect" id="entrar" type="submit">Entrar</button>
+                            <button class="btn btn-block bg-pink waves-effect" id="entrar" type="button">Entrar</button>
                         </div>
                     </div>
                     <div class="row m-t-15 m-b--20">
                         <div class="col-xs-12 align-right">
-                            <a href="OLVIDECONTRA.html">Olvide Contraseña</a>
+                            <a href="recoverpass.php">Olvide Contraseña</a>
                         </div>
                     </div>
                 </form>
@@ -79,6 +81,8 @@
     <!-- Waves Effect Plugin Js -->
     <script src="plugins/node-waves/waves.js"></script>
 
+    
+    <script src="plugins/sweetalert/sweetalert.min.js"></script>
     <!-- Validation Plugin Js -->
     <script src="plugins/jquery-validation/jquery.validate.js"></script>
     <script src="js/funciones.js"></script>
@@ -86,33 +90,8 @@
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
     <script src="js/pages/examples/sign-in.js"></script>
+    
+    <script src="js/pages/ui/dialogs.js"></script>
+	<script src="js/ControllerJs/login.js"></script>
 </body>
 </html>
-
-<script type="text/javascript" >
-    $(document).ready(function(){
-        //script para evento click y ajax 
-        $('#entrar').click(function(){
-            vacios = validarFormVacio('frmLogin');
-            if(vacios>0){
-                alert("completa los campos");
-                return false;
-            }
-            datos=$('#frmLogin').serialize();
-            console.log(datos);
-            $.ajax({
-                type:"POST",
-                data: datos,
-                url:"controller/RegLogin/login.php",
-                success:function(r){
-                    console.log(r);
-                    if(r==1){
-                        window.location="Vistas/index.php";
-                    }else{
-                       alert("error");
-                    }
-                }
-            });
-        });
-    });
-</script>
