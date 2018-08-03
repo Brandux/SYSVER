@@ -8,7 +8,7 @@
                     <img src="../images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
+                    <div class="name" style="color: black;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['usuario'] ?></div>
                     <div class="email">john.doe@example.com</div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
@@ -25,17 +25,27 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">Menú</li>
-                    <li class="active">
+                    <li class="active" style="color:black">
+                        <a href="index.php">
+                            <i class="material-icons">home</i>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="WorkersP1.php">
                             <i class="material-icons">work</i>
                             <span>Trabajadores</span>
                         </a>
                     </li>
                     <li>
-                        <a href="ProyectosP1.php">
-                            <i class="material-icons">content_paste</i>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">assignment</i>
                             <span>Proyectos</span>
                         </a>
+                        <ul class="ml-menu">
+                            <li><a href="ProyectosP1.php">Proyectos</a> </li>
+                            <li><a href="Clientes.php">Clientes</a></li>
+                        </ul>
                     </li>
                     <li>
                         <a href="Categoria.php">
@@ -52,16 +62,7 @@
                 </ul>
             </div>
             <!-- #Menu -->
-            <!-- Footer -->
-            <div class="legal">
-                <div class="copyright">
-                    &copy; 2018 <a href="javascript:void(0);">VERNIE - SYSVER</a>.
-                </div>
-                <div class="version">
-                    <b>Version: </b> 1.0.0
-                </div>
-            </div>
-            <!-- #Footer -->
+           
         </aside>
         <!-- #END# Left Sidebar -->
     </section>
