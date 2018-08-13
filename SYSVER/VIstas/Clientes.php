@@ -4,7 +4,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
 	<?php Include("../includes/head.php"); ?>
@@ -59,7 +59,7 @@
 							<br>
 							<div class="table-responsive" id="tablaProyecto">
 								<?php
-                                $link = mysqli_connect('localhost', 'vertec', 'vernie123','vernie_db');
+                                  $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
                                 $sql ="SELECT IDCLIENTE , NOMBRE, TIPO_IDENTIDAD AS DOC , DOC_IDENTIDAD AS NUMERO , CELULAR, TELEFONO,  EMAIL FROM cliente;";
                                 $resul= mysqli_query($link,$sql);?>
 								<table id="tablaProyectosp1" class="table table-bordered table-striped table-hover dataTable js-exportable">

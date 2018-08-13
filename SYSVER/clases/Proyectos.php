@@ -12,7 +12,7 @@
         public function editProyectos($datos){
             $c= new conectar();
             $conexion=$c->conexion (); $c= new conectar();
-            $sql="call vernie_db.pro_EditProyecto($datos[0], $datos[1], '$datos[2]', '$datos[3]', '$datos[5]', '$datos[6]', $datos[4])";
+            $sql="call pro_EditProyecto($datos[0], $datos[1], '$datos[2]', '$datos[3]', '$datos[5]', '$datos[6]', $datos[4])";
             return mysqli_query($conexion, $sql);
         }
     

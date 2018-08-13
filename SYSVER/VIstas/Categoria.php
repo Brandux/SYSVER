@@ -3,7 +3,7 @@
     if(isset($_SESSION['usuario'])){
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
 	<?php Include("../includes/head.php"); ?>
@@ -60,7 +60,7 @@
 							<br>
 							<div class="table-responsive" id="tablaCategoria">
 								<?php
-                                   $link = mysqli_connect('localhost', 'vertec', 'vernie123','vernie_db');
+                                   $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
 								    $sql ="SELECT idCategoria, Nombre, Estado FROM categoria";
                                      $resul= mysqli_query($link,$sql);
                                 ?>

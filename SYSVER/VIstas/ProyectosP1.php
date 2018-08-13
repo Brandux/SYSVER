@@ -4,7 +4,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
 	<?php Include("../includes/head.php"); ?>
@@ -61,7 +61,7 @@
 							<br>
 							<div class="table-responsive" id="tablaProyecto">
 								<?php
-                                $link = mysqli_connect('localhost', 'vertec', 'vernie123','vernie_db');
+                                 $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
                                 $sql ="SELECT pro.idPROYECTO AS IDPRO, cl.NOMBRE AS CLIENTE ,PRO.NOMBRE AS PROYECTO, PRO.ESTUDIO_SUELO AS STSUELO,
                                             CONCAT( DATE_FORMAT(PRO.FECHA_INICIO,'%d  %b , %Y'), ' : hasta : ', DATE_FORMAT(PRO.FECHA_FIN,'%d  %b , %Y')) AS FECHA , 
                                             DATEDIFF(PRO.FECHA_FIN,PRO.fecha_inicio)+1 as dias_totales,

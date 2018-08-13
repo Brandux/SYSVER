@@ -2,9 +2,9 @@
    
    class conectar{
        private $servidor="localhost";
-       private $usuario="vertec";
-       private $pass="vernie123";
-       private $db="vernie_db";
+       private $usuario="root";
+       private $pass="";
+       private $db="verniearchitect_db";
 
        public function conexion (){
          $con = mysqli_connect($this->servidor,$this->usuario,$this->pass, $this->db);

@@ -4,7 +4,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
 	<?php Include("../includes/head.php"); ?>
@@ -35,7 +35,7 @@
 						<div class="content">
 							<div class="text"># TRABAJADORES</div>
 							<?php
-                                $link = mysqli_connect('localhost', 'vertec', 'vernie123','vernie_db');
+                                $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
                                 $sql ="SELECT count(*) as numero FROM worker";
 								$resul= mysqli_query($link,$sql);
 								 while ($ver= mysqli_fetch_row($resul)): ?>
@@ -55,7 +55,7 @@
 								<strong># CLIENTES</strong>
 							</div>
 							<?php
-                                $link = mysqli_connect('localhost', 'vertec', 'vernie123','vernie_db');
+                                $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
                                 $sql ="SELECT count(*) as numero FROM cliente";
 								$resul= mysqli_query($link,$sql);
 								 while ($ver= mysqli_fetch_row($resul)): ?>
@@ -73,7 +73,7 @@
 						<div class="content">
 							<div class="text"># PROYECTOS</div>
 							<?php
-                                $link = mysqli_connect('localhost', 'vertec', 'vernie123','vernie_db');
+                                $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
                                 $sql ="SELECT count(*) as numero FROM proyecto";
 								$resul= mysqli_query($link,$sql);
 								 while ($ver= mysqli_fetch_row($resul)): ?>
@@ -205,7 +205,7 @@
 							<div class="font-bold m-b--35">PROYECTOS</div>
 							<ul class="dashboard-stat-list">
 								<?php
-                                   $link = mysqli_connect('localhost', 'vertec', 'vernie123','vernie_db');
+                                   $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
 								    $sql ="SELECT PRO.NOMBRE AS PROYECTO , DATEDIFF(PRO.FECHA_FIN,PRO.fecha_inicio)+1 as dias_totales FROM PROYECTO  PRO ORDER BY dias_totales DESC ";
                                      $resul= mysqli_query($link,$sql);
                                		while ($ver= mysqli_fetch_row($resul)): ?>
@@ -244,5 +244,5 @@
 </html>
 <?php
     }else{
-        header("../login.php");
+        header("location: ../login.php");
     }
