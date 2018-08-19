@@ -254,6 +254,7 @@
 
 	<!-- Archivos Javascript -->
 	<?php Include("../includes/jsGeneral.php");?>
+	<script src="../js/ControllerJs/BloqueadorController.js"></script>
 </body>
 <script>
 	$("#add").click(function() {

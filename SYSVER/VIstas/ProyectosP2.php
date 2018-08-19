@@ -183,6 +183,7 @@
 	<!-- Archivos Javascript -->
 	<?php Include("../includes/jsGeneral.php");?>
 	<script src="../js/ControllerJs/proyectoP2.js"></script>
+	<script src="../js/ControllerJs/BloqueadorController.js"></script>
 </body>
 </html>
 <?php

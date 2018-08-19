@@ -174,6 +174,7 @@
 	<!-- Archivos Javascript -->
 	<?php Include("../includes/jsGeneral.php");?>
 	<script src="../js/ControllerJs/categoria.js"></script>
+    <script src="../js/ControllerJs/BloqueadorController.js"></script>
 </body>
 </html>
 <?php

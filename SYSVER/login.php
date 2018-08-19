@@ -93,5 +93,9 @@
     
     <script src="js/pages/ui/dialogs.js"></script>
 	<script src="js/ControllerJs/login.js"></script>
+    <script src="js/ControllerJs/BloqueadorController.js"></script>
+    
+    
+
 </body>
 </html>

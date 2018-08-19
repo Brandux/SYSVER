@@ -194,13 +194,8 @@
 
 	<!-- Archivos Javascript -->
 	<?php Include("../includes/jsGeneral.php");?>
+	<script src="../js/ControllerJs/BloqueadorController.js"></script>
 </body>
-<script>
-	function Guardar() {
-		swal("Good job!", "You clicked the button!", "success");
-	}
-</script>
-
 </html>
 <?php
     }else{
