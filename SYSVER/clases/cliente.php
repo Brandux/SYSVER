@@ -20,7 +20,7 @@
         public function eliminarCliente($idCliente){
             $c= new conectar();
             $conexion=$c->conexion (); $c= new conectar();
-            $sql="DELETE FROM cliente WHERE idCliente='$idCliente'";
+            $sql="UPDATE cliente SET Estado='0' WHERE idCliente='$idCliente'";
             return mysqli_query($conexion, $sql);
         }
     }
