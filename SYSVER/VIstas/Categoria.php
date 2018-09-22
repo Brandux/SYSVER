@@ -60,7 +60,7 @@
 							<br>
 							<div class="table-responsive" id="tablaCategoria">
 								<?php
-                                   $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
+                                   $link = mysqli_connect('173.236.82.180', 'verniearchitect_vertec', 'pass//2018','verniearchitect_db');
 								    $sql ="SELECT idCategoria, Nombre, Estado FROM categoria";
                                      $resul= mysqli_query($link,$sql);
                                 ?>

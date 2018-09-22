@@ -127,7 +127,7 @@
 										</span>
 										<label for="sel1">Cliente * :</label>
 										<?php
-										  $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
+										  $link = mysqli_connect('173.236.82.180', 'verniearchitect_vertec', 'pass//2018','verniearchitect_db');
 											$sql ="SELECT IDCLIENTE,NOMBRE FROM CLIENTE;";
 											$resul= mysqli_query($link,$sql);?>
 										<select  class="form-control" name="idCliente" id="idCliente">
@@ -145,7 +145,7 @@
 										</span>
 										<label for="sel1">Nivel de importancia * :</label>
 										<?php
-										  $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
+										  $link = mysqli_connect('173.236.82.180','verniearchitect_vertec', 'pass//2018','verniearchitect_db');
 											$sql ="SELECT IDCATEGORIA, NOMBRE FROM CATEGORIA WHERE ESTADO =1;";
 											$resul= mysqli_query($link,$sql);?>
 										<select  class="form-control" name="idCategoria" id="idCategoria">

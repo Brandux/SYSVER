@@ -59,7 +59,7 @@
 							<br>
 							<div class="table-responsive" id="tablaProyecto">
 								<?php
-                                  $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
+                                  $link = mysqli_connect('173.236.82.180','verniearchitect_vertec', 'pass//2018','verniearchitect_db');
                                 $sql ="SELECT IDCLIENTE , NOMBRE, TIPO_IDENTIDAD AS DOC , DOC_IDENTIDAD AS NUMERO , CELULAR, TELEFONO,  EMAIL FROM cliente WHERE ESTADO=1";
                                 $resul= mysqli_query($link,$sql);?>
 								<table id="tablaProyectosp1" class="table table-bordered table-striped table-hover dataTable js-exportable">

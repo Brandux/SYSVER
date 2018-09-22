@@ -1,9 +1,9 @@
 <?php
    
    class conectar{
-       private $servidor="localhost";
-       private $usuario="root";
-       private $pass="";
+       private $servidor="173.236.82.180";
+       private $usuario="verniearchitect_vertec";
+       private $pass="pass//2018";
        private $db="verniearchitect_db";
 
        public function conexion (){

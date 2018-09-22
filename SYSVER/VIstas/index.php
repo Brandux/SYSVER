@@ -35,7 +35,7 @@
 						<div class="content">
 							<div class="text"># TRABAJADORES</div>
 							<?php
-                                $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
+                                $link = mysqli_connect('173.236.82.180', 'verniearchitect_vertec', 'pass//2018','verniearchitect_db');
                                 $sql ="SELECT count(*) as numero FROM worker";
 								$resul= mysqli_query($link,$sql);
 								 while ($ver= mysqli_fetch_row($resul)): ?>
@@ -55,8 +55,8 @@
 								<strong># CLIENTES</strong>
 							</div>
 							<?php
-                                $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
-                                $sql ="SELECT count(*) as numero FROM cliente";
+                                $link = mysqli_connect('173.236.82.180', 'verniearchitect_vertec', 'pass//2018','verniearchitect_db');
+                                $sql ="SELECT count(*) as numero FROM cliente where Estado =1";
 								$resul= mysqli_query($link,$sql);
 								 while ($ver= mysqli_fetch_row($resul)): ?>
 							<div class="number count-to" data-from="0" data-to="<?php echo $ver[0]?>" data-speed="1000"
@@ -73,8 +73,8 @@
 						<div class="content">
 							<div class="text"># PROYECTOS</div>
 							<?php
-                                $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
-                                $sql ="SELECT count(*) as numero FROM proyecto";
+                                $link = mysqli_connect('173.236.82.180', 'verniearchitect_vertec', 'pass//2018','verniearchitect_db');
+                                $sql ="SELECT count(*) as numero FROM proyecto WHERE Estado = 1";
 								$resul= mysqli_query($link,$sql);
 								 while ($ver= mysqli_fetch_row($resul)): ?>
 							<div class="number count-to" data-from="0" data-to="<?php echo $ver[0]?>" data-speed="1000"
@@ -116,17 +116,17 @@
 							<div class="table-responsive">
 								<table class="table table-hover dashboard-task-infos">
 								<?php
-                                   $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
-								    $sql ="SELECT CL.NOMBRE , CL.CELULAR , cl.email , 
+                                   $link = mysqli_connect('173.236.82.180', 'verniearchitect_vertec', 'pass//2018','verniearchitect_db');
+								    $sql ="SELECT CL.NOMBRE , CL.CELULAR , CL.email , 
 									CASE py.estado
-								   WHEN 1 THEN 'En un proyecto'
-								   WHEN 2 THEN 'Sin Proyecto'
-								   WHEN 0 THEN 'Proyecto terminado'
-								   ELSE 'Nuevo'
-								   END as realizador
-								   FROM cliente CL 
-								   inner join contrato co on co.idcliente = cl.idcliente 
-								   inner join proyecto py on py.idContrato = co.idContrato ;";
+									WHEN 1 THEN 'En un proyecto'
+									WHEN 2 THEN 'Sin Proyecto'
+									WHEN 0 THEN 'Proyecto terminado'
+									ELSE 'Nuevo'
+									END 
+									FROM cliente CL 
+									inner join contrato co on co.idcliente = CL.idcliente 
+									inner join proyecto py on py.idContrato = co.idContrato ";
                                      $resul= mysqli_query($link,$sql);
                                		?>
 									<thead>
@@ -165,8 +165,8 @@
 							<div class="font-bold m-b--35">PROYECTOS</div>
 							<ul class="dashboard-stat-list">
 								<?php
-                                   $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
-								    $sql ="SELECT PRO.NOMBRE AS PROYECTO , DATEDIFF(PRO.FECHA_FIN,PRO.fecha_inicio)+1 as dias_totales FROM PROYECTO  PRO ORDER BY dias_totales DESC ";
+                                   $link = mysqli_connect('173.236.82.180','verniearchitect_vertec', 'pass//2018','verniearchitect_db');
+								    $sql ="SELECT PRO.NOMBRE AS PROYECTO , DATEDIFF(PRO.FECHA_FIN,PRO.fecha_inicio)+1 as dias_totales FROM proyecto  PRO ORDER BY dias_totales DESC ";
                                      $resul= mysqli_query($link,$sql);
                                		while ($ver= mysqli_fetch_row($resul)): ?>
 

@@ -61,16 +61,8 @@
 							<br>
 							<div class="table-responsive" id="tablaProyecto">
 								<?php
-                                 $link = mysqli_connect('localhost', 'root', '','verniearchitect_db');
-                                $sql ="SELECT pro.idPROYECTO AS IDPRO, cl.NOMBRE AS CLIENTE ,PRO.NOMBRE AS PROYECTO, PRO.ESTUDIO_SUELO AS STSUELO,
-                                            CONCAT( DATE_FORMAT(PRO.FECHA_INICIO,'%d  %b , %Y'), ' : hasta : ', DATE_FORMAT(PRO.FECHA_FIN,'%d  %b , %Y')) AS FECHA , 
-                                            DATEDIFF(PRO.FECHA_FIN,PRO.fecha_inicio)+1 as dias_totales,
-                                            DATEDIFF(PRO.FECHA_FIN, NOW()) as DiasRestantes,
-                                            CT.NOMBRE AS CATEGORIA, CON.COSTO_TOTAL AS COSTO , pro.ESTADO AS ESTADO , con.idcontrato , PRO.FECHA_FIN
-                                            FROM proyecto PRO
-                                            inner join CONTRATO CON ON CON.IDCONTRATO = PRO.IDCONTRATO
-                                            INNER JOIN CATEGORIA CT ON CT.IDCATEGORIA = CON.IDCATEGORIA	
-                                            INNER JOIN CLIENTE CL ON CL.IDCLIENTE = CON.IDCLIENTE ";
+                                 $link = mysqli_connect('173.236.82.180', 'verniearchitect_vertec', 'pass//2018','verniearchitect_db');
+                                $sql ="SELECT PRO.idProyecto AS IDPRO, CL.NOMBRE AS CLIENTE ,PRO.NOMBRE AS PROYECTO, PRO.ESTUDIO_SUELO AS STSUELO, CONCAT( DATE_FORMAT(PRO.FECHA_INICIO,'%d %b , %Y'), ' : hasta : ', DATE_FORMAT(PRO.FECHA_FIN,'%d %b , %Y')) AS FECHA , DATEDIFF(PRO.FECHA_FIN,PRO.fecha_inicio)+1 as dias_totales, DATEDIFF(PRO.FECHA_FIN, NOW()) as DiasRestantes, CT.NOMBRE AS CATEGORIA, CON.COSTO_TOTAL AS COSTO , PRO.ESTADO AS ESTADO , CON.idcontrato , PRO.FECHA_FIN FROM proyecto PRO inner join contrato CON ON CON.idContrato = PRO.idContrato INNER JOIN categoria CT ON CT.idCategoria = CON.idCategoria INNER JOIN cliente CL ON CL.idCliente = CON.idCliente";
                                 $resul= mysqli_query($link,$sql);?>
 								<table id="tablaProyectosp1" class="table table-bordered table-striped table-hover dataTable js-exportable">
 									<thead>
