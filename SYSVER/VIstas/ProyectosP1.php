@@ -250,7 +250,7 @@
 </body>
 <script>
 	$("#add").click(function() {
-		location.href = "http://localhost/SYSVER/SYSVER/Vistas/ProyectosP2.php";
+		location.href = "http://sysver.verniearchitect.com/VIstas/ProyectosP2.php";
 	});
 
 	// para editar 
