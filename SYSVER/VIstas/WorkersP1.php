@@ -47,7 +47,6 @@
                                         <div class="body">
                                             <a href="WorkersP2.php">
                                               <button type="button"  class="btn bg-blue btn-circle-lg waves-effect waves-circle waves-float">
-
                                                     <i class="material-icons">add</i>
                                                 </button>
                                             </a>
@@ -56,7 +55,7 @@
                                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                                     <thead>
                                                         <tr>
-                                                            <th>Nombre y apellido </th>
+                                                            <th>Trabajador </th>
                                                             <th>DNI</th>
                                                             <th>Email</th>
                                                             <th>Edad</th>
@@ -69,7 +68,7 @@
                                                     </thead>
                                                     <tfoot>
                                                         <tr>
-                                                            <th>Nombre y apellido </th>
+                                                            <th>Trabajador </th>
                                                             <th>DNI</th>
                                                             <th>Email</th>
                                                             <th>Edad</th>
@@ -80,7 +79,7 @@
                                                             <th>OPIONES</th>
                                                         </tr>
                                                     </tfoot>
-                                                    <tbody>
+                                                    <tbody id="tableContent">
                                                           
                                                         <tr>
                                                             <td>Brandux Juarez Avila</td>
@@ -95,7 +94,7 @@
                                                                 <button type="button"  data-toggle="modal" data-target="#edit"  class="btn btn-info btn-circle waves-effect waves-circle waves-float">
                                                                     <i class="material-icons">edit</i>
                                                                 </button>
-                                                                 <button type="button"  onclick="eliminar()" class="btn btn-danger btn-circle waves-effect waves-circle waves-float">
+                                                                 <button type="button" class="btn btn-danger btn-circle waves-effect waves-circle waves-float">
                                                                     <i class="material-icons">close</i>
                                                                 </button>
                                                             </td>
@@ -113,7 +112,7 @@
                                                                 <button type="button"  data-toggle="modal" data-target="#edit" class="btn btn-info btn-circle waves-effect waves-circle waves-float">
                                                                     <i class="material-icons">edit</i>
                                                                 </button>
-                                                                 <button type="button"  onclick="eliminar()" class="btn btn-danger btn-circle waves-effect waves-circle waves-float">
+                                                                 <button type="button" class="btn btn-danger btn-circle waves-effect waves-circle waves-float">
                                                                     <i class="material-icons">close</i>
                                                                 </button>
                                                             
@@ -136,32 +135,57 @@
                                 <h4 class="modal-title" id="defaultModalLabel">Actualizar Datos de trabajadores</h4>
                             </div>
                             <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" id="email_address" class="form-control" placeholder="Corre Electronico">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="password" id="password" class="form-control" placeholder="Fechas fin">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" id="sueldo" class="form-control" placeholder="Sueldo">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" id="as" class="form-control" placeholder="Sueldo">
-                                    </div>
-                                </div>
-                            </form>                                
+                                <form id="regTrab" method="POST">
+                                    <div class="form-group form-float">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">email</i>
+                                            </span>
+                                            <div class="form-line">
+                                                <input type="text" id="categoria" name="categoria" class="form-control" placeholder="Correo...">
+                                            </div>
+                                        </div>
+							        </div>
+                                    <div class="form-group form-float">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">phone</i>
+                                            </span>
+                                            <div class="form-line">
+                                                <input type="number" id="categoria" name="categoria" class="form-control" placeholder="Celular...">
+                                            </div>
+                                        </div>
+							        </div>
+                                    <div class="form-group form-float">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">money</i>
+                                            </span>
+                                            <div class="form-line">
+                                                <input type="number" id="categoria" name="categoria" class="form-control" placeholder="Sueldo...">
+                                            </div>
+                                        </div>
+							        </div>
+                                    <div class="form-group form-float">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">add</i>
+                                            </span>
+                                            <div class="form-line">
+                                                <select id="horario" class="form-control show-tick">
+                                                    <option value="" disabled selected>Estado actual del trabajador</option>
+                                                    <option value="1">Vacaciones</option>
+                                                    <option value="2">Renuncia</option>
+                                                    <option value="3">Fin de Contrato</option>
+                                                </select>
+                                            </div>
+                                        </div>
+							        </div>
+                                </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-link waves-effect">Guardar Cambios</button>
-                                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-success waves-effect">Guardar Cambios</button>
+                                <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
                     </div>
@@ -175,6 +199,48 @@
    
 </body>
 <script>
+    $(document).ready(function (){
+        loadDataInTable();
+    });
+
+    function loadDataInTable(){
+        var tbody=$("#tableContent");
+        tbody.empty();
+        $.ajax("../controller/Trabajador/Trabajador.php?opc=getAll",{
+            type:'POST',
+            success:function(obj){
+                var info="";
+                console.log(obj.length);
+                for(var i=0;i<obj.length;i++){
+                    info+='<tr>';
+                    info+='<td>'+obj[i]['Nombre']+'</td>';
+                    info+='<td>'+obj[i]['DNI']+'</td>';
+                    info+='<td>'+obj[i]['email']+'</td>';
+                    info+='<td>'+obj[i]['Edad']+'</td>';
+                    info+='<td>'+obj[i]['cell']+'</td>';
+                    info+='<td>'+obj[i]['Fechas_Fin']+'</td>';
+                    info+='<td>'+obj[i]['Salario']+'</td>';
+                    if(obj[i]['Estado']=='1'){
+                        info+='<td>Activo</td>';
+                    }else if(obj[i]['Estado']=='2'){
+                        info+='<td>Fin de contrato</td>';
+                    }else{
+                        info+='<td>Renuncia</td>';
+                    }
+                    info+='<td><button type="button"  data-toggle="modal" data-target="#edit" class="btn btn-info btn-circle waves-effect waves-circle waves-float">'+
+                        '<i class="material-icons">edit</i>'+
+                        '</button>'+
+                        '<button type="button" class="btn btn-danger btn-circle waves-effect waves-circle waves-float">'+
+                        '<i class="material-icons">close</i>'+
+                        '</button></td>';
+                    info+='</tr>';
+                }
+                tbody.append(info);
+                console.log(obj);
+            }
+        });
+    }
+
     function eliminar(){
         swal({
         title: " Deseas eliminar?",

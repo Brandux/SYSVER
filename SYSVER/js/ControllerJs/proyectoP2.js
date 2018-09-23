@@ -3,7 +3,7 @@ function Guardar() {
 }
 
 $("#cancel").click(function() {
-    location.href = "http://localhost/SYSVER/SYSVER/Vistas/ProyectosP1.php";
+    location.href = "http://sysver.verniearchitect.com/VIstas/ProyectosP1.php";
 });
 
 //script para guardar
@@ -23,7 +23,7 @@ $('#btnProyecto').click(function() {
             console.log(r);
             if (r == 1) {
                 swal("Registrado correctamente!", "Da clic en el boton Ok!", "success");
-                location.href = "http://localhost/SYSVER/SYSVER/Vistas/ProyectosP1.php";
+                location.href = "http://sysver.verniearchitect.com/VIstas/ProyectosP1.php";
             } else {
                 swal("Problemas.. Intentelo nuevamente!", "Da clic en el boton Ok!", "info");
             }
