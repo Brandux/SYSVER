@@ -3,7 +3,6 @@
         public function agregaCategoria($datos){
             $c= new conectar();
             $conexion=$c->conexion (); $c= new conectar();
-            $conexion=$c->conexion ();
             $sql="INSERT INTO categoria (Nombre, Estado) VALUES ('$datos[0]' , '1')";
             return mysqli_query($conexion, $sql );
         }

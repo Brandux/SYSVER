@@ -135,8 +135,8 @@
 							</form>
 						</div>
 						<div class="modal-footer">
-							<button type="button" id="btnEditCategoria" class="btn btn-link waves-effect">Guardar Cambios</button>
-							<button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Cerrar</button>
+							<button type="button" id="btnEditCategoria" class="btn btn-success waves-effect">Guardar Cambios</button>
+							<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cerrar</button>
 						</div>
 					</div>
 				</div>
@@ -151,11 +151,17 @@
 						</div>
 						<div class="modal-body">
 							<form id="fromCat">
-								<div class="form-group">
-									<div class="form-line">
+							<div class="form-group form-float">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">settings</i>
+										</span>
+										<div class="form-line">
 										<input type="text" id="categoria" name="categoria" class="form-control" placeholder="categoria...">
+										</div>
 									</div>
-								</div>
+							</div>
+			
 							</form>
 						</div>
 						<div class="modal-footer">

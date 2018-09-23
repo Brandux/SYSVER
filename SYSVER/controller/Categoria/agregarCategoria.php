@@ -7,7 +7,4 @@
 
     $obj = new cateogrias();
     echo $obj-> agregaCategoria($datos);
-
-
-    
 ?>

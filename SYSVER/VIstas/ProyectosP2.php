@@ -128,7 +128,7 @@
 										<label for="sel1">Cliente * :</label>
 										<?php
 										  $link = mysqli_connect('173.236.82.180', 'verniearchitect_vertec', 'pass//2018','verniearchitect_db');
-											$sql ="SELECT IDCLIENTE,NOMBRE FROM CLIENTE;";
+											$sql ="SELECT IDCLIENTE,NOMBRE FROM cliente where Estado =1;";
 											$resul= mysqli_query($link,$sql);?>
 										<select  class="form-control" name="idCliente" id="idCliente">
 											<?php while ($ver= mysqli_fetch_row($resul)): ?>
@@ -146,7 +146,7 @@
 										<label for="sel1">Nivel de importancia * :</label>
 										<?php
 										  $link = mysqli_connect('173.236.82.180','verniearchitect_vertec', 'pass//2018','verniearchitect_db');
-											$sql ="SELECT IDCATEGORIA, NOMBRE FROM CATEGORIA WHERE ESTADO =1;";
+											$sql ="SELECT IDCATEGORIA, NOMBRE FROM categoria WHERE ESTADO =1";
 											$resul= mysqli_query($link,$sql);?>
 										<select  class="form-control" name="idCategoria" id="idCategoria">
 											<?php while ($ver= mysqli_fetch_row($resul)): ?>
