@@ -2,7 +2,6 @@
 session_start();
 if(isset($_SESSION['usuario'])){
     ?>
-
     <!DOCTYPE html>
     <html>
     <head>
@@ -47,7 +46,7 @@ if(isset($_SESSION['usuario'])){
                                 <!--Nombre Open-->
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input id="nombre" type="text" name="name" class="form-control" required>
+                                        <input id="nombre" type="text" name="nombre" class="form-control" required>
                                         <label class="form-label">Nombre Completo*</label>
                                     </div>
                                 </div>
@@ -64,7 +63,7 @@ if(isset($_SESSION['usuario'])){
                                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                         <div class="form-group form-float">
                                             <div class="input-field">
-                                                <select id="tipo_doc" class="select-dropdown" name="reg_tipo_dni">
+                                                <select id="tipo_doc" class="select-dropdown" name="tipo_doc">
                                                     <option value="" disabled>Tipo de documento</option>
                                                     <option value="1">DNI</option>
                                                     <option value="2">Pasaporte</option>
@@ -76,13 +75,13 @@ if(isset($_SESSION['usuario'])){
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input id="correo" type="email" name="email" class="form-control" required>
+                                        <input id="correo" type="email" name="correo" class="form-control" required>
                                         <label class="form-label">Email*</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <select id="tipo_work" class="form-control show-tick">
+                                        <select id="tipo_work" name="tipo_work" class="form-control show-tick">
                                             <option value="" disabled selected>Tipo de trabajador</option>
                                             <option value="1">Practicante</option>
                                             <option value="2">Normal</option>
@@ -91,18 +90,18 @@ if(isset($_SESSION['usuario'])){
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input id="fecha_ini" type="text" class="datepicker form-control"
+                                        <input id="fecha_ini" name="fecha_ini" type="text" class="datepicker form-control"
                                                placeholder="Fecha inicio...">
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input id="fecha_fin" type="text" class="datepicker form-control" placeholder="Fecha fin...">
+                                        <input id="fecha_fin" name="fecha_fin" type="text" class="datepicker form-control" placeholder="Fecha fin...">
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <select id="horario" class="form-control show-tick">
+                                        <select id="horario" name="horario" class="form-control show-tick">
                                             <option value="" disabled selected>Tipo de horario</option>
                                             <option value="1">Mañana</option>
                                             <option value="2">Tarde</option>
@@ -124,16 +123,21 @@ if(isset($_SESSION['usuario'])){
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input id="edad" min="18" type="number" name="age" class="form-control">
+                                        <input id="edad" min="18" type="number" name="edad" class="form-control">
                                         <label class="form-label">Edad*</label>
                                     </div>
                                     <div class="help-info">Se recomienda que sea mayor de 18 años</div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <select id="horario" class="form-control show-tick">
-                                            <option value="" disabled selected>Filial</option>
-                                            <option value="1">Vernie</option>
+                                        <select id="filial" name="filial" class="form-control show-tick">
+                                        <?php
+                                            $link = mysqli_connect('173.236.82.180', 'verniearchitect_vertec', 'pass//2018','verniearchitect_db');
+                                            $sql ="SELECT idFilial, Nombre FROM filial WHERE ESTADO  = 1 ";
+                                            $resul= mysqli_query($link,$sql);
+                                            while ($ver= mysqli_fetch_row($resul)):?>
+                                            <option value="<?php echo $ver[0]?>"  selected><?php echo $ver[1]?></option>
+                                            <?php endwhile;?>
                                         </select>
                                     </div>
                                 </div>
@@ -155,51 +159,8 @@ if(isset($_SESSION['usuario'])){
 
     <!-- Archivos Javascript -->
     <?php Include("../includes/jsGeneral.php"); ?>
+	<script src="../js/ControllerJs/Worker2.js"></script>
     </body>
-    <script>
-        $(document).ready(function(){
-            $('#enviar').click(function(){
-                if(validarFormVacio('regTrab')>0){
-                    alert("completa los campos");
-                    return false;
-                }else{
-                    $.ajax('../controller/Trabajador/Trabajador.php',{
-                        data:{
-                            idfilial:$('#ponerID').val(),
-                            nombre:$('#nombre').val(),
-                            dni:$('#dni').val(),
-                            email:$('#correo').val(),
-                            cel:$('#celular').val(),
-                            tipoWorker:$('#tipo_work').val(),
-                            fechaIni:$('#fecha_ini').val(),
-                            fechaFin:$('#fecha_fin').val(),
-                            salario:$('#sueldo').val(),
-                            edad:$('#edad').val(),
-                            horario:$('#horario').val(),
-                            diasLab:$('#ponerID').val(),
-                            horas:$('#ponerID').val()
-                        },
-                        type:'POST',
-                        success:function(obj){
-                            if(obj==true){
-                                Guardar();
-                            }
-                        }
-                    });
-                }
-            });
-        });
-        function Guardar() {
-            swal("Excelente!", "Hemos registrado un nuevo trabajador!", "success");
-        }
-
-
-//Formatea los datepicker a formato de la base de dato
-$('#fecha_fin').bootstrapMaterialDatePicker({ lang: 'es', weekStart: 0, time: false, cancelText: 'Cancelar', okText: 'Definir' });
-$('#fecha_ini').bootstrapMaterialDatePicker({ lang: 'es', weekStart: 0, time: false, cancelText: 'Cancelar', okText: 'Definir' }).on('change', function(e, date) {
-    $('#fecha_fin').bootstrapMaterialDatePicker('setMinDate', date);
-});
-    </script>
     </html>
     <?php
 }else{

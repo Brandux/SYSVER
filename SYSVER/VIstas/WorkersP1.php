@@ -27,9 +27,9 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="card">
                                         <div class="header">
-                                            <h2>
+                                            <h1 class="text-center">
                                                Lista de trabajadores
-                                            </h2>
+                                            </h1>
                                             <ul class="header-dropdown m-r--5">
                                                 <li class="dropdown">
                                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -52,16 +52,32 @@
                                             </a>
                                             <br><br>
                                             <div class="table-responsive">
+                                            <?php
+                                            $link = mysqli_connect('173.236.82.180', 'verniearchitect_vertec', 'pass//2018','verniearchitect_db');
+                                                $sql ="
+                                                SELECT w.idWorker, w.nombre ,CONCAT(case w.Tipo_Documento  when 1 then 'DNI'  when 2 then 'Pasaporte'  when 3 then 'RUC'  end , ' : ',  w.N_documento)  ,w.cell,w.email, w.salario ,
+                                                CONCAT(DATE_FORMAT(w.Fechas_Fin, '%d  %b , %Y') ,' hasta ' ,DATE_FORMAT(w.Fecha_Inicio, '%d  %b , %Y'))  , con.Dias , fil.Nombre ,
+                                                case  w.Horario  when 1 then 'Mañana'  when 2 then 'Tarde'  when 3 then ' Dia Completo'  end,
+                                                case  con.Estado  when 1 then 'EN PROCESO'  when 2 then 'FINALIZADO'  when 3 then ' VACACIONES'  end
+                                                FROM verniearchitect_db.worker w
+                                                inner join verniearchitect_db.worker_contrato wc on w.idWorker = wc.idWorker
+                                                inner join verniearchitect_db.contrato con on con.idContrato = wc.idContrato
+                                                inner join verniearchitect_db.filial fil on fil.idFilial = w.idFilial;";
+                                                mysqli_query($link,"SET NAMES 'utf8'");
+                                            $eject= mysqli_query($link,"SET lc_time_names = 'es_PE';");
+                                            $resul= mysqli_query($link,$sql);?>
                                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                                     <thead>
                                                         <tr>
                                                             <th>Trabajador </th>
-                                                            <th>DNI</th>
-                                                            <th>Email</th>
-                                                            <th>Edad</th>
+                                                            <th>Documento</th>
                                                             <th>Celular</th>
-                                                            <th>Fecha de estadia</th>
+                                                            <th>Correo</th>
                                                             <th>Sueldo</th>
+                                                            <th>Fecha de estadia</th>
+                                                            <th>Dias</th>
+                                                            <th>Filial</th>
+                                                            <th>Horario</th>
                                                             <th>Estado</th>
                                                             <th class="centered" >OPIONES</th>
                                                         </tr>
@@ -69,27 +85,31 @@
                                                     <tfoot>
                                                         <tr>
                                                             <th>Trabajador </th>
-                                                            <th>DNI</th>
-                                                            <th>Email</th>
-                                                            <th>Edad</th>
+                                                            <th>Documento</th>
                                                             <th>Celular</th>
-                                                            <th>Fecha de estadia</th>
+                                                            <th>Correo</th>
                                                             <th>Sueldo</th>
+                                                            <th>Fecha de estadia</th>
+                                                            <th>Dias</th>
+                                                            <th>Filial</th>
+                                                            <th>Horario</th>
                                                             <th>Estado</th>
-                                                            <th>OPIONES</th>
+                                                            <th class="centered" >OPIONES</th>
                                                         </tr>
                                                     </tfoot>
-                                                    <tbody id="tableContent">
-                                                          
+                                                    <tbody >
+                                                    <?php while ($ver= mysqli_fetch_row($resul)): ?>
                                                         <tr>
-                                                            <td>Brandux Juarez Avila</td>
-                                                            <td>72370779</td>
-                                                            <td>branduxjuarez@upeu.edu.pe</td>
-                                                            <td>20</td>
-                                                            <td>931858464</td>
-                                                            <td>20</td>
-                                                            <td>890</td>
-                                                            <td>ACTIVO</td>
+                                                            <td><?php echo $ver[1]?></td>
+                                                            <td><?php echo $ver[2]?></td>
+                                                            <td><strong><?php echo $ver[3]?></strong></td>
+                                                            <td><?php echo $ver[4]?></td>
+                                                            <td><?php echo $ver[5]?></td>
+                                                            <td><?php echo $ver[6]?></td>
+                                                            <td><strong><?php echo $ver[7]?></strong> - días</td>
+                                                            <td><?php echo $ver[8]?></td>
+                                                            <td><span class='badge bg-green'><?php echo $ver[9]?></span></td>
+                                                            <td><?php echo $ver[10]?></td>
                                                             <td>
                                                                 <button type="button"  data-toggle="modal" data-target="#edit"  class="btn btn-info btn-circle waves-effect waves-circle waves-float">
                                                                     <i class="material-icons">edit</i>
@@ -99,25 +119,7 @@
                                                                 </button>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td>Jesus Jordan Elias Chavez</td>
-                                                            <td>78954663</td>
-                                                            <td>jesus@upeu.edu.pe</td>
-                                                            <td>21</td>
-                                                            <td>123456789</td>
-                                                            <td>20</td>
-                                                            <td>1200</td>
-                                                            <td>RENUNCIA</td>
-                                                            <td>
-                                                                <button type="button"  data-toggle="modal" data-target="#edit" class="btn btn-info btn-circle waves-effect waves-circle waves-float">
-                                                                    <i class="material-icons">edit</i>
-                                                                </button>
-                                                                 <button type="button" class="btn btn-danger btn-circle waves-effect waves-circle waves-float">
-                                                                    <i class="material-icons">close</i>
-                                                                </button>
-                                                            
-                                                            </td>
-                                                        </tr>
+                                                        <?php endwhile;?>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -172,11 +174,26 @@
                                                 <i class="material-icons">add</i>
                                             </span>
                                             <div class="form-line">
-                                                <select id="horario" class="form-control show-tick">
+                                                <select id="Estado" class="form-control show-tick">
                                                     <option value="" disabled selected>Estado actual del trabajador</option>
                                                     <option value="1">Vacaciones</option>
                                                     <option value="2">Renuncia</option>
                                                     <option value="3">Fin de Contrato</option>
+                                                </select>
+                                            </div>
+                                        </div>
+							        </div>
+                                    <div class="form-group form-float">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">add</i>
+                                            </span>
+                                            <div class="form-line">
+                                                <select id="horario" class="form-control show-tick">
+                                                    <option value="" disabled selected>Horario</option>
+                                                    <option value="1">Mañana</option>
+                                                    <option value="2">Tarde</option>
+                                                    <option value="3">Todo el día</option>
                                                 </select>
                                             </div>
                                         </div>
